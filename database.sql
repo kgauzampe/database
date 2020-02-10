@@ -2,14 +2,14 @@ CREATE DATABASE Umuzi;
 
 CREATE TABLE customers (
     customerid serial PRIMARY KEY,
-    firstname character varying(50),
-    lastname character varying(50),
-    gender character varying,
-    address character varying(200), 
-    phone integer,
-    email character varying(100),
-    city character varying(20),
-    country character varying(50),
+    firstname varchar(50),
+    lastname varchar(50),
+    gender varchar,
+    address varchar(200), 
+    phone int,
+    email varchar(100),
+    city varchar(20),
+    country varchar(50),
   
 );
 
@@ -24,10 +24,10 @@ INSERT INTO customers ("customerid", "firstname", "lastname", "gender", "address
 
 CREATE TABLE employees (
     employeeid serial PRIMARY KEY,
-    firstname character varying(50),
-    lastname character varying(50),
-    email character varying(100),
-    jobtitle character varying(20),
+    firstname varchar(50),
+    lastname varchar(50),
+    email varchar(100),
+    jobtitle varchar(20),
    
 );
 
@@ -39,12 +39,12 @@ INSERT INTO employees ("employeeid", "firstname", "lastname", "email", "jobtitle
 
 CREATE TABLE orders (
     orderid serail PRIMARY KEY,
-    productid integer REFERENCES products(productid),
-    paymentid integer REFERENCES payments(paymentid),
-    fulfilledbyemployeeid integer,
+    productid int REFERENCES products(productid),
+    paymentid int REFERENCES payments(paymentid),
+    fulfilledbyemployeeid int,
     daterequired date,
     dateshipped date,
-    status character varying(20),
+    status varchar(20),
    
  
 );
@@ -56,7 +56,7 @@ INSERT INTO orders ("orderid", "productid", "paymentid", "fulfilledbyemployeeid"
 
 
 CREATE TABLE payments (
-    customerid integer,
+    customerid int,
     paymentid serial PRIMARY KEY,
     paymentdate date,
     amount numeric,
@@ -72,8 +72,8 @@ INSERT INTO payments ("customerid", "paymentid", "paymentdate", "amount") VALUES
 
 CREATE TABLE products (
     productid serial PRIMARY KEY,
-    productname character varying(100),
-    description character varying(300),
+    productname varchar(100),
+    description varchar(300),
     buyprice numeric,
    
 );
